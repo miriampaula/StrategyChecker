@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta http-equiv="refresh" content="120">
+    <style>
+      @import url("https://fonts.googleapis.com/css?family=Rajdhani:300&display=swap");
+
+      @keyframes rotating {
+        0% {
+          --r: 0deg;
+        }
+        100% {
+          --r: 360deg;
+        }
+      }
+      @property --r {
+        syntax: "<angle>";
+        inherits: false;
+        initial-value: 0deg;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1376484/jess-harding-lqT6NAmTaiY-unsplash.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+      .container {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 1200px;
+        flex-wrap: wrap;
+        z-index: 1;
+      }
+
+      .container .card {
+        filter: drop-shadow(0px 20px 10px rgba(0, 0, 0, 0.3));
+        position: relative;
+        width: 140px;
+        height: 400px;
+        margin: 30px;
+        box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.363);
+        background: #f8f4f411;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-top: 1px solid rgba(255, 255, 255, 0.5);
+        border-left: 1px solid rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(20px);
+      }
+
+      .container .cardactiv {
+        position: static;
+        transform: none;
+        filter: drop-shadow(0px 20px 10px rgba(0, 0, 0, 0.3));
+        width: 140px;
+        height: 400px;
+        margin: 30px;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-top: 1px solid rgba(255, 255, 255, 0.5);
+        border-left: 1px solid rgba(255, 255, 255, 0.5);
+        box-shadow: 0 0 10px 5px rgb(255, 255, 255),
+          0 0 20px 10px rgb(255, 255, 255),
+          0 0 40px 20px rgba(255, 255, 255, 0.997);
+        background: conic-gradient(
+          from var(--r),
+          #a6ab9e 30%,
+          #efeae8,
+          #a6ab9e 50%
+        );
+        backdrop-filter: blur(20px);
+        animation: rotating 1s linear infinite;
+        z-index: 2;
+      }
+
+      .container .card .content {
+        padding-top: 0px;
+        height: 400px;
+        text-align: center;
+        transform: translateY(25px);
+        transition: 0.7s;
+      }
+
+      .container .card:hover .content {
+        cursor: default !important;
+      }
+
+      .container .card .content h2 {
+        position: absolute;
+        right: -60px;
+        top: 60px;
+        font-size: 6em;
+        color: #fafafa3d;
+        transform: rotate(90deg);
+        z-index: -1;
+      }
+
+      .container .card .content h3 {
+        padding-top: 10px;
+        font-size: 1.4em;
+        color: #ffffff;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.336);
+        letter-spacing: 0.3em;
+        font-family: "Rajdhani", sans-serif;
+      }
+
+      .container .card .content a {
+        position: relative;
+        display: inline-block;
+        padding: 8px 20px;
+        margin-top: 15px;
+        background: #fff;
+        color: #000;
+        border-radius: 20px;
+        text-decoration: none;
+        font-weight: 500;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      }
+      .container .card .content .signals {
+        padding-top: 30px;
+      }
+
+      .container .card .content .signals .rectangle {
+        margin-top: 10px;
+        margin-left: 10px;
+        margin-right: 10px;
+        border-radius: 15px;
+        width: 80%;
+        height: 50px;
+        background: #ffffff46;
+        font-size: 0;
+      }
+
+      .container .cardactiv .content {
+        padding-top: 0px;
+        height: 400px;
+        text-align: center;
+        transform: translateY(25px);
+        transition: 0.7s;
+      }
+
+      .container .cardactiv:hover .content {
+        cursor: default !important;
+      }
+
+      .container .cardactiv .content h2 {
+        position: absolute;
+        right: -60px;
+        top: 60px;
+        font-size: 6em;
+        color: #fafafa3d;
+        transform: rotate(90deg);
+        z-index: -1;
+      }
+
+      .container .cardactiv .content h3 {
+        padding-top: 10px;
+        font-size: 1.4em;
+        color: #ffffff;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.336);
+        letter-spacing: 0.3em;
+        font-family: "Rajdhani", sans-serif;
+      }
+
+      .container .cardactiv .content a {
+        position: relative;
+        display: inline-block;
+        padding: 8px 20px;
+        margin-top: 15px;
+        background: #fff;
+        color: #000;
+        border-radius: 20px;
+        text-decoration: none;
+        font-weight: 500;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      }
+      .container .cardactiv .content .signals {
+        padding-top: 30px;
+      }
+
+      .container .cardactiv .content .signals .rectangle {
+        position: relative;
+        margin-top: 10px;
+        margin-left: 10px;
+        margin-right: 10px;
+        border-radius: 15px;
+        width: 80%;
+        height: 50px;
+        background: #ffffff46;
+        font-size: 0;
+        z-index: 1;
+      }
+      .line {
+        width: 100%;
+        height: 2px;
+        background-color: #fdfdfdc7;
+        opacity: 0.7;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="card" id="cardgbpcadd">
+        <div class="content">
+          <h2>FOREX</h2>
+          <h3>GBPCAD</h3>
+          <div class="line"></div>
+          <div class="signals">
+            <div class="rectangle" id="gbp5min">{{ GBPCAD_TREND_5MIN }}</div>
+            <div class="rectangle" id="gbp1h">{{ GBPCAD_TREND_1H }}</div>
+            <div class="rectangle" id="gbp4h">{{ GBPCAD_TREND_4H }}</div>
+            <div class="rectangle" id="gbp1d">{{ GBPCAD_TREND_1DAY }}</div>
+          </div>
+        </div>
+      </div>
+      <div class="card" id="cardAUDUSDy">
+        <div class="content">
+          <h2>FOREX</h2>
+          <h3>AUDUSD</h3>
+          <div class="line"></div>
+          <div class="signals">
+            <div class="rectangle" id="AUDUSD5min">{{ AUDUSD_TREND_5MIN }}</div>
+            <div class="rectangle" id="AUDUSD1h">{{ AUDUSD_TREND_1H }}</div>
+            <div class="rectangle" id="AUDUSD4h">{{ AUDUSD_TREND_4H }}</div>
+            <div class="rectangle" id="AUDUSD1d">{{ AUDUSD_TREND_1DAY }}</div>
+          </div>
+        </div>
+      </div>
+      <div class="card" id="cardEURUSDy">
+        <div class="content">
+          <h2>FOREX</h2>
+          <h3>EURUSD</h3>
+          <div class="line"></div>
+          <div class="signals">
+            <div class="rectangle" id="EURUSD5min">{{ EURUSD_TREND_5MIN }}</div>
+            <div class="rectangle" id="EURUSD1h">{{ EURUSD_TREND_1H }}</div>
+            <div class="rectangle" id="EURUSD4h">{{ EURUSD_TREND_4H }}</div>
+            <div class="rectangle" id="EURUSD1d">{{ EURUSD_TREND_1DAY }}</div>
+          </div>
+        </div>
+      </div>
+      <div class="card" id="cardusdchff">
+        <div class="content">
+          <h2>FOREX</h2>
+          <h3>USDCHF</h3>
+          <div class="line"></div>
+          <div class="signals">
+            <div class="rectangle" id="usdchf5min">{{ USDCHF_TREND_5MIN }}</div>
+            <div class="rectangle" id="usdchf1h">{{ USDCHF_TREND_1H }}</div>
+            <div class="rectangle" id="usdchf4h">{{ USDCHF_TREND_4H }}</div>
+            <div class="rectangle" id="usdchf1d">{{ USDCHF_TREND_1DAY }}</div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="card" id="cardGBPJPYy">
+        <div class="content">
+          <h2>FOREX</h2>
+          <h3>GBPJPY</h3>
+          <div class="line"></div>
+          <div class="signals">
+            <div class="rectangle" id="GBPJPY5min">{{ GBPJPY_TREND_5MIN }}</div>
+            <div class="rectangle" id="GBPJPY1h">{{ GBPJPY_TREND_1H }}</div>
+            <div class="rectangle" id="GBPJPY4h">{{ GBPJPY_TREND_4H }}</div>
+            <div class="rectangle" id="GBPJPY1d">{{ GBPJPY_TREND_1DAY }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      type="text/javascript"
+      src="{{ url_for('serve_static', path='vanilla-tilt.js') }}"
+    ></script>
+
+    <script type="text/javascript">
+      VanillaTilt.init(document.querySelectorAll(".card"), {
+        max: 30,
+        speed: 400,
+        glare: true,
+        "max-glare": 2.5,
+      });
+
+      const gbpcad5min = document.getElementById("gbp5min");
+      color1 = gbpcad5min.innerHTML;
+      gbpcad5min.style.background = color1;
+      //  gbpcad5min.style.boxShadow = color;
+
+      const gbpcad1h = document.getElementById("gbp1h");
+      color2 = gbpcad1h.innerHTML;
+      gbpcad1h.style.background = color2;
+      //  gbpcad1h.style.boxShadow = color;
+
+      const gbpcad4h = document.getElementById("gbp4h");
+      color3 = gbpcad4h.innerHTML;
+      gbpcad4h.style.background = color3;
+      //  gbpcad4h.style.boxShadow = color;
+
+      const gbpcad1d = document.getElementById("gbp1d");
+      color4 = gbpcad1d.innerHTML;
+      gbpcad1d.style.background = color4;
+      //  gbpcad1d.style.boxShadow = color;
+
+      if (color1 === color2 && color2 === color3 && color3 === color4) {
+        const cardgbpcad = document.getElementById("cardgbpcadd");
+        cardgbpcad.className = "cardactiv";
+      }
+
+      const AUDUSD5minc = document.getElementById("AUDUSD5min");
+      color1 = AUDUSD5minc.innerHTML;
+      AUDUSD5minc.style.background = color1;
+      //  AUDUSD5min.style.boxShadow = color;
+
+      const AUDUSD1hc = document.getElementById("AUDUSD1h");
+      color2 = AUDUSD1hc.innerHTML;
+      AUDUSD1hc.style.background = color2;
+      //  AUDUSD1h.style.boxShadow = color;
+
+      const AUDUSD4hc = document.getElementById("AUDUSD4h");
+      color3 = AUDUSD4hc.innerHTML;
+      AUDUSD4hc.style.background = color3;
+      //  AUDUSD4h.style.boxShadow = color;
+
+      const AUDUSD1dc = document.getElementById("AUDUSD1d");
+      color4 = AUDUSD1dc.innerHTML;
+      AUDUSD1dc.style.background = color4;
+      //  AUDUSD1d.style.boxShadow = color;
+
+      if (color1 === color2 && color2 === color3 && color3 === color4) {
+        const cardAUDUSD = document.getElementById("cardAUDUSDy");
+        cardAUDUSD.className = "cardactiv";
+      }
+
+      const EURUSD5m = document.getElementById("EURUSD5min");
+      color1 = EURUSD5m.innerHTML;
+      EURUSD5m.style.background = color1;
+      //  EURUSD5min.style.boxShadow = color;
+
+      const EURUSD1hr = document.getElementById("EURUSD1h");
+      color2 = EURUSD1hr.innerHTML;
+      EURUSD1hr.style.background = color2;
+      //  EURUSD1h.style.boxShadow = color;
+
+      const EURUSD4hr = document.getElementById("EURUSD4h");
+      color3 = EURUSD4hr.innerHTML;
+      EURUSD4hr.style.background = color3;
+      //  EURUSD1h.style.boxShadow = color;
+
+      const EURUSD1day = document.getElementById("EURUSD1d");
+      color4 = EURUSD1day.innerHTML;
+      EURUSD1day.style.background = color4;
+
+      if (color1 === color2 && color2 === color3 && color3 === color4) {
+        const cardEURUSD = document.getElementById("cardEURUSDy");
+        cardEURUSD.className = "cardactiv";
+      }
+
+      const usdchf5m = document.getElementById("usdchf5min");
+      color1 = usdchf5m.innerHTML;
+      usdchf5m.style.background = color1;
+      //  usdchf5m.style.boxShadow = color;
+
+      const usdchf1hr = document.getElementById("usdchf1h");
+      color2 = usdchf1hr.innerHTML;
+      usdchf1hr.style.background = color2;
+      //  EURUSD1h.style.boxShadow = color;
+
+      const usdchf4hr = document.getElementById("usdchf4h");
+      color3 = usdchf4hr.innerHTML;
+      usdchf4hr.style.background = color3;
+      //  EURUSD1h.style.boxShadow = color;
+
+      const usdchf1day = document.getElementById("usdchf1d");
+      color4 = usdchf1day.innerHTML;
+      usdchf1day.style.background = color4;
+      //  EURUSD1d.style.boxShadow = color;
+
+      
+      if (color1 === color2 && color2 === color3 && color3 === color4) {
+        const cardusdchf = document.getElementById("cardusdchff");
+        cardusdchf.className = "cardactiv";
+      }
+
+
+
+
+    
+      const GBPJPY5m = document.getElementById("GBPJPY5min");
+      color1 = GBPJPY5m.innerHTML;
+      GBPJPY5m.style.background = color1;
+      //  usdchf5m.style.boxShadow = color;
+
+      const GBPJPY1hr = document.getElementById("GBPJPY1h");
+      color2 = GBPJPY1hr.innerHTML;
+      GBPJPY1hr.style.background = color2;
+      //  EURUSD1h.style.boxShadow = color;
+
+      const GBPJPY4hr = document.getElementById("GBPJPY4h");
+      color3 = GBPJPY4hr.innerHTML;
+      GBPJPY4hr.style.background = color3;
+      //  EURUSD1h.style.boxShadow = color;
+
+      const GBPJPY1day = document.getElementById("GBPJPY1d");
+      color4 = GBPJPY1day.innerHTML;
+      GBPJPY1day.style.background = color4;
+      //  EURUSD1d.style.boxShadow = color;
+
+
+      if (color1 === color2 && color2 === color3 && color3 === color4) {
+        const cardGBPJPY = document.getElementById("cardGBPJPYy");
+        cardGBPJPY.className = "cardactiv";
+      }
+
+      
+    </script>
+  </body>
+</html>
