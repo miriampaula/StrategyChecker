@@ -15,7 +15,7 @@ placeholder_ema_values = {
 
 
 def get_last_ema(cross, timeframe, timeperiod):
-    url = "https://api.twelvedata.com/ema?symbol={}&interval={}&apikey=375daff8de1c4f779f31c09d5148c705&time_period={}"
+    url = "https://api.twelvedata.com/ema?symbol={}&interval={}&apikey=$apikey&time_period={}"
     response = requests.get(url.format(cross, timeframe, timeperiod)).json()
     return float(response['values'][0]['ema'])
 
